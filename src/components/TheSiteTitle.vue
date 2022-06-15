@@ -14,9 +14,11 @@ export default {
 
 <style scoped>
 .main-title {
-  font-family: "Barcade";
+  /* font-family: "Barcade"; */
+  font-family: "amazonic";
   font-size: 65px;
-  padding-left: 8px;
+  padding-left: 12px;
+  padding-top: 10px;
   white-space: nowrap;
   color: indigo;
   text-decoration: none!important;
@@ -24,7 +26,7 @@ export default {
 
 .site-title-gif-mid {
   position: absolute;
-  left: 288px;
+  left: 300px;
   bottom: 3px;
   height: 60px;
   transform: scaleX(-1);
@@ -33,27 +35,40 @@ export default {
 .site-title-gif-end {
   position: absolute;
   height: 55px;
-  left: 342px;
+  left: 355px;
   bottom: 3px;
 }
 
 @media (max-width: 1200px){
+  .main-title {
+    font-size: 54px;
+  }
+
+  .site-title-gif-mid {
+    height: 40px;
+    left: 250px;
+  }
+
+  .site-title-gif-end {
+    height: 43px;
+    left: 290px;
+  }
+}
+
+@media (max-width: 1024px){
   .main-title {
     font-size: 48px;
   }
 
   .site-title-gif-mid {
     height: 40px;
-    left: 216px;
+    left: 228px;
   }
 
   .site-title-gif-end {
     height: 43px;
-    left: 252px;
+    left: 265px;
   }
-}
-
-@media (max-width: 1024px){
 }
 
 @media (max-width: 768px){

@@ -22,6 +22,11 @@ img {
     src: local("antonio"),
     url(../fonts/antonio/Antonio-Light.ttf) format("truetype");
 }
+@font-face {
+    font-family: "amazonic";
+    src: local("amazonic"),
+    url(../fonts/amazonic/Amazonic-Unique.ttf) format("truetype");
+}
 
 /*******************************/
 /*** GLOBAL APP PRESENTATION ***/

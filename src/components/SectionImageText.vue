@@ -5,17 +5,17 @@
                         'flex-container-revrow': directionRow && !imageFirst,
                         'flex-container-revcolumn': !directionRow && !imageFirst
                      }"
-        v-bind:style="{background: sectionBackground, color: sectionColor}"
+        v-bind:style="{background: sectionBackground, color: sectionColor, paddingTop: sectionPadding, paddingBottom: sectionPadding}"
     >
     <div class="image-container flex-container-row flex-1 align-center justify-center">
-      <img :src="require(`@/assets/images/${imageUrl}`)" :alt="imageAlt">
+      <img :src="require(`@/assets/images/quotes/${imageUrl}`)" :alt="imageAlt">
     </div>
     <div class="text-container flex-container-column flex-1 align-center justify-center">
       <h2 v-bind:class="{'no-display': textTitle === null}">
         {{textTitle}}
       </h2>
-      <p>
-        {{textContent}}
+      <p v-for="textEl in textArray" :key="textEl">
+        {{textEl}}
       </p>
     </div>
   </div>
@@ -41,16 +41,15 @@ export default {
       type: String,
       default: '#2c3e50'
     },
+    sectionPadding: {
+      type: String,
+      default: '50px'
+    },
     imageUrl: String,
     imageAlt: String,
     textTitle: String,
-    textContent: String
+    textArray: Array,
   },
-  methods: {
-    getImgUrl() {
-      return require('../assets/images/' + this.imageUrl)
-    }
-  }
 }
 </script>
 
@@ -62,6 +61,7 @@ export default {
 .image-container img {
   max-height: 300px;
   max-width: 400px;
+  border: 1px solid #00000022;
 }
 
 .text-container {
