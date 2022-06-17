@@ -182,9 +182,9 @@ export default {
 
   opacity: 0;
   left: -325px;
-  transition-property: opacity, left;
-  transition-delay: 0.25s, 0.05s;
-  transition-duration: 0.1s, 0.15s;
+  transition-property: opacity, left, z-index;
+  transition-delay: 0.25s, 0.05s, 0.25s;
+  transition-duration: 0.1s, 0.15s, 0.15s;
 
   top: 200px;
   padding: 20px 20px 20px 25px;
