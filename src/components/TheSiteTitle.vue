@@ -1,5 +1,5 @@
 <template>
-  <div class="the-site-title flex-1 flex-container-row justify-start align-center pos-relative">
+  <div class="the-site-title flex-1 flex-container-row justify-start align-center pos-relative full-height">
     <a href="/shagshag" class="main-title">SHAG SHAG</a>
     <img src="../assets/gifs/16bit-rocker.gif" alt="Shake dat' bro!" class="site-title-gif-mid">
     <img src="../assets/gifs/8bit-rocker.gif" alt="Alright dude!" class="site-title-gif-end">
@@ -13,12 +13,17 @@ export default {
 </script>
 
 <style scoped>
+.the-site-title {
+  overflow: hidden;
+}
+
 .main-title {
   /* font-family: "Barcade"; */
   font-family: "amazonic";
   font-size: 65px;
+  line-height: 65px;
   padding-left: 12px;
-  padding-top: 10px;
+  padding-top: 13px;
   white-space: nowrap;
   color: indigo;
   text-decoration: none!important;
@@ -42,6 +47,7 @@ export default {
 @media (max-width: 1200px){
   .main-title {
     font-size: 54px;
+    padding-top: 10px;
   }
 
   .site-title-gif-mid {
@@ -58,6 +64,8 @@ export default {
 @media (max-width: 1024px){
   .main-title {
     font-size: 48px;
+    padding-top: 9px;
+    padding-left: 10px;
   }
 
   .site-title-gif-mid {
@@ -74,6 +82,8 @@ export default {
 @media (max-width: 768px){
   .main-title {
     font-size: 36px;
+    padding-left: 8px;
+    padding-top: 8px;
   }
 
   .site-title-gif-mid {

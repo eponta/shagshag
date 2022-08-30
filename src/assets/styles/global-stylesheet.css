@@ -195,6 +195,10 @@ img {
     width: 100%;
 }
 
+.full-height {
+    height: 100%;
+}
+
 .pad-5 {
     padding: 5px;
 }

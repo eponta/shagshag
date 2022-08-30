@@ -8,7 +8,7 @@
         v-bind:style="{background: sectionBackground, color: sectionColor, paddingTop: sectionPadding, paddingBottom: sectionPadding}"
     >
     <div class="image-container flex-container-row flex-1 align-center justify-center">
-      <img :src="require(`@/assets/images/quotes/${imageUrl}`)" :alt="imageAlt">
+      <img :src="require(`@/assets/images/quotes/${imageUrl}`)" :alt="imageAlt" :class="{'border-img': !noBorder}">
     </div>
     <div class="text-container flex-container-column flex-1 align-center justify-center">
       <h2 v-bind:class="{'no-display': textTitle === null}">
@@ -45,6 +45,10 @@ export default {
       type: String,
       default: '50px'
     },
+    noBorder: {
+      type: Boolean,
+      default: false
+    },
     imageUrl: String,
     imageAlt: String,
     textTitle: String,
@@ -61,7 +65,10 @@ export default {
 .image-container img {
   max-height: 300px;
   max-width: 400px;
-  border: 1px solid #00000022;
+}
+
+.image-container img.border-img {
+  border: 1px solid #00000055;
 }
 
 .text-container {
