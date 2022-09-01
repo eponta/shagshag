@@ -107,24 +107,27 @@ p {
 
 @media (max-width: 768px){
   .section-image-text {
-    padding: 20px 10px;
+    flex-direction: column;
+
+    padding: 100px 10px!important;
   }
 
   .image-container img {
-    max-height: 120px;
-    max-width: 130px;
+    max-height: 270px;
+    max-width: 250px;
   }
 
   .text-container {
+    margin-top: 30px;
     padding: 0px 10px;
   }
 
   h2 {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   p {
-    font-size: 11px;
+    font-size: 14px;
   }
 }
 </style>

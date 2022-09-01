@@ -64,6 +64,29 @@ img {
 /****************/
 /*** SECTIONS ***/
 /****************/
+.section-title {
+    z-index: 50;
+    padding-top: 75px;
+    padding-bottom: 50px;
+}
+.section-title > h2 {
+    text-transform: uppercase;
+    font-size: 44px;
+}
+
+@media (max-width: 1024px){
+    .section-title > h2 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 768px){
+    .section-title > h2 {
+        font-size: 22px;
+        max-width: calc(100vw - 50px);
+    }
+}
+
 .section-image {
     width: 100%;
     position: relative;

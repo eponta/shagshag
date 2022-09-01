@@ -207,7 +207,7 @@ p {
     padding: 30px;
   }
 
-  .image-container img {
+  .image-container .img {
     max-height: 250px;
     max-width: 350px;
   }
@@ -223,24 +223,31 @@ p {
 
 @media (max-width: 768px){
   .section-double-image-text {
-    padding: 20px 10px;
+    flex-direction: column;
+
+    padding: 100px 10px!important;
   }
 
-  .image-container img {
-    max-height: 120px;
-    max-width: 130px;
+  .image-container {
+    height: 180px!important;
+    width: 250px!important;
+  }
+
+  .image-container .img {
+    background-size: 250px 100%!important;
   }
 
   .text-container {
+    margin-top: 30px;
     padding: 0px 10px;
   }
 
   h2 {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   p {
-    font-size: 11px;
+    font-size: 14px;
   }
 }
 </style>

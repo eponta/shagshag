@@ -33,7 +33,7 @@ export default {
   z-index: 999999;
   top: 0;
   left: 0;
-  height: 70px;
+  height: var(--hd-height);
   background: linear-gradient(110deg, rgba(255,255,255,1) 0%,rgba(0,212,255,1) 54%, rgba(43,85,76,1) 75%, rgba(2,0,36,1) 90%);
   background-color: #5eb4a2;
   box-shadow: 0px 1px 5px rgba(0,0,0,0.5);
@@ -45,7 +45,7 @@ export default {
 
 @media (max-width: 1024px){
   .the-top-header {
-    min-height: 55px;
+    min-height: var(--hd-height-md);
   }
 
   .s-links-container {
@@ -61,7 +61,7 @@ export default {
 
 @media (max-width: 768px){
   .the-top-header {
-    min-height: 40px;
+    min-height: var(--hd-height-sm);
   }  
 
   .s-links-container {

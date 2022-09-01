@@ -2,18 +2,18 @@
   <div class="the-nav-menu flex-container-row">
     <font-awesome-icon :icon="['fas', 'caret-down']" size="2x" class="burger-button" v-on:click="clickBurgerMenu"/>
     <div class="nav-menu-container flex-container-row">
-      <div class="nav-link-container">
-        <router-link to="/">ACCUEIL</router-link>
+      <div class="nav-link-container" v-on:click="bBurgerMenuOpen = false">
+        <router-link to="/" >ACCUEIL</router-link>
       </div>
       <!--
       <div class="nav-link-container">
         <router-link to="/theband">CREW</router-link>
       </div>
       -->
-      <div class="nav-link-container">
+      <div class="nav-link-container" v-on:click="bBurgerMenuOpen = false">
         <router-link to="/music">CHANSONS</router-link>
       </div>
-      <div class="nav-link-container">
+      <div class="nav-link-container" v-on:click="bBurgerMenuOpen = false">
         <router-link to="/quotes">QUOTES</router-link>
       </div>
     </div>

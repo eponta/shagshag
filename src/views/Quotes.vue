@@ -60,8 +60,8 @@
       v-bind:imageFirst="false"
       v-bind:imageUrl="'clo-ombrages.jpeg'"
       v-bind:imageAlt="''"
-      v-bind:textTitle="'...'"
-      v-bind:textArray="[]"
+      v-bind:textTitle="'WOULD YOU LIKE TO SIT WITH ME'"
+      v-bind:textArray="['For a cup of English tea']"
       v-bind:sectionColor="'#f2f2f2'"
       v-bind:sectionPadding="'100px'"
     />
@@ -70,8 +70,8 @@
       v-bind:imageFirst="true"
       v-bind:imageUrl="'bob-enfeus.jpeg'"
       v-bind:imageAlt="''"
-      v-bind:textTitle="'...'"
-      v-bind:textArray="[]"
+      v-bind:textTitle="'LES NUITS N\'ONT PAS DE RÈGLES'"
+      v-bind:textArray="['Les coeurs cognent comme des basses']"
       v-bind:sectionBackground="'lightsalmon'"
     />
     <SectionImageText 
@@ -128,8 +128,8 @@
       v-bind:imageFirst="true"
       v-bind:imageUrl="'bud-enfeus.jpeg'"
       v-bind:imageAlt="''"
-      v-bind:textTitle="'...'"
-      v-bind:textArray="[]"
+      v-bind:textTitle="'LADIES AND GENTLEMEN '"
+      v-bind:textArray="['THE ROLLING STONES']"
       v-bind:sectionBackground="'thistle'"
     />
     <SectionImageText 

@@ -128,6 +128,11 @@
         >
       </div>
     </div>
+    <div class="section-title flex-container-column align-center justify-center">
+        <h2>
+            DERNIÈRES VIDÉOS
+        </h2>
+    </div>
     <div class="section-video flex-container-row">
       <div class="video-container flex-1 align-center justify-center">
         <iframe width="854" 
@@ -187,6 +192,7 @@ export default {
 
 .section-presentation {
   position: relative;
+  overflow: hidden;
 }
 
 .bg-presentaion-cnt {
@@ -224,9 +230,9 @@ export default {
 
 .shadow-bud {
   bottom: 3.555556%;
-  right: 13.833333%;
+  right: 13.7%;
   height: 78.1%;
-  width: 29%;
+  width: 29.3%;
 }
 
 /*.shadow-clo {
@@ -251,10 +257,11 @@ export default {
 }*/
 
 .presentation-txt-cnt {
-  /* position: absolute;
-  top: 200px; */
   position: fixed;
-  top: calc(10% + 71px);
+  top: 71px;
+  height: calc(100vh - var(--hd-height));
+  /* position: fixed; */
+  /* top: calc(10% + 71px); */
 
   display: flex;
   flex-direction: column;
@@ -266,9 +273,8 @@ export default {
   transition-delay: 0.25s, 0.05s, 0.25s;
   transition-duration: 0.1s, 0.15s, 0.15s;
 
-  padding: 20px 20px 20px 25px;
+  padding: 20px;
   width: 325px;
-  max-height: calc(90% - 71px);
   box-sizing: border-box;
 
   background-color: #ffffff22;
@@ -350,6 +356,7 @@ export default {
   font-weight: 500;
   font-size: 46px;
   color: #2f4f4f;
+  text-align: center;
 }
 
 /* .presentation-hd > h2 {
@@ -393,7 +400,7 @@ export default {
   flex: 0;
 
   /* height: 40px; */
-  height: 50px;
+  height: 48px;
 
   padding: 2px;
 
@@ -404,32 +411,35 @@ export default {
 }
 
 .presentation-content {
+  flex: 1;
+
   margin-bottom: 36px;
   padding-bottom: 20px;
   padding-left: 13px;
+  padding-right: 13px;
 
   display: flex;
   flex-direction: column;
 
-  border-bottom: 1px solid rgba(0, 0, 0, 0.168);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 
-  overflow: scroll;
+  overflow: auto;
 }
 
 .text-clo h2{
-  background: -webkit-linear-gradient(45deg, rgb(132, 255, 165) 0%, rgb(255, 159, 228) 70%);
+  background: -webkit-linear-gradient(45deg, rgb(132, 255, 165) 20%, rgb(255, 159, 228) 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-bob h2 {
-  background: -webkit-linear-gradient(45deg, rgb(132, 255, 165) 0%, rgb(255, 159, 228) 60%);
+  background: -webkit-linear-gradient(45deg, rgb(132, 255, 165) 20%, rgb(255, 159, 228) 75%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-bud h2 {
-  background: -webkit-linear-gradient(45deg, rgb(132, 255, 165) 0%, rgb(255, 159, 228) 50%);
+  background: -webkit-linear-gradient(45deg, rgb(132, 255, 165) 20%, rgb(255, 159, 228) 70%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -461,7 +471,7 @@ export default {
   right: 20px;
   bottom: 12px;
 
-  opacity: 0.4;
+  opacity: 0.5;
   transition: 0.15s;
 
   cursor: pointer;
@@ -471,8 +481,17 @@ export default {
   transition: 0.15s;
 }
 
+.section-title {
+  margin-top: 100px;
+}
+
+.section-title > h2 {
+  color: #fdfdfd;
+}
+
 .section-video {
   background-color: black;
+  margin-bottom: 250px;
 }
 
 .video-container {
@@ -485,18 +504,147 @@ export default {
 }
 
 .video-container iframe {
-  max-width: 100%;
+  max-width: 70%;
+  border: 5px solid #fdfdfdaa;
+  border-radius: 12px;
 }
 
 @media (max-width: 1200px){
+  .presentation-txt-cnt {
+    padding: 17px;
+    width: 300px;
+    left: -300px;
+    font-size: 16px;
+  }
+
+  .presentation-hd > h2 {
+    padding-left: 10px;
+    padding-top: 6px;
+    font-size: 42px;
+  }
+
+  .tete-img {
+    height: 44px;
+  }
+
+  .presentation-content {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .section-title {
+    margin-top: 80px;
+  }
+
+  .section-video {
+    margin-bottom: 200px;
+  }
 }
 
 @media (max-width: 1024px){
+  .presentation-txt-cnt {
+    top: var(--hd-height-md);
+    height: calc(100vh - var(--hd-height-md));
+    padding: 15px;
+    width: 275px;
+    left: -275px;
+    font-size: 15px;
+  }
+
+  .presentation-hd > h2 {
+    padding-left: 8px;
+    padding-top: 6px;
+    font-size: 36px;
+  }
+
+  .tete-img {
+    height: 37px;
+  }
+
+  .presentation-content {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .section-title {
+    margin-top: 60px;
+  }
+
   .section-video {
     flex-direction: column;
+    margin-bottom: 150px;
   }
 }
 
 @media (max-width: 768px){
+  .bg-presentaion-cnt img {
+    width: 160%;
+    margin-left: -30%;
+  }
+
+  .shadow-clo {
+    bottom: 5.7%;
+    left: 1%;
+    height: 79.8%;
+    width: 37.84%;
+  }
+
+  .shadow-bob {
+    bottom: 4.2%;
+    right: 29.7%;
+    height: 74.5%;
+    width: 34.24%;
+  }
+
+  .shadow-bud {
+    bottom: 3.555556%;
+    right: -8.2%;
+    height: 78.1%;
+    width: 47%;
+  }
+
+  .presentation-txt-cnt {
+    top: var(--hd-height-sm);
+    height: calc(100vh - var(--hd-height-sm));
+    padding: 80px 20px 20px 20px;
+    width: 100vw;
+    left: -100vw;
+    font-size: 15px;
+    background: #dadadaee;
+  }
+
+  .presentation-hd {
+    width: 250px;
+    max-width: 300px;
+    align-self: center;
+    margin-bottom: 30px;
+  }
+
+  .presentation-hd > h2 {
+    padding-left: 8px;
+    padding-top: 5px;
+    font-size: 30px;
+  }
+
+  .tete-img {
+    height: 31px;
+  }
+
+  .presentation-content {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .section-title {
+    margin-top: 40px;
+  }
+
+  .section-video {
+    margin-bottom: 100px;
+  }
+
+  .video-container iframe {
+    max-width: 95%;
+  }
 }
 </style>

@@ -140,20 +140,12 @@ export default {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.10) 40%, rgba(0, 0, 0, 0.65) 100%); /* W3C */
 }
 
-.section-title {
-    z-index: 50;
-    padding-top: 75px;
-    padding-bottom: 50px;
-}
-
 .section-title > h2 {
     color: aquamarine;
     background: transparent;
     background-image: linear-gradient(127deg, #D9AFD9 0%, #97D9E1 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-transform: uppercase;
-    font-size: 44px;
     width: max-content;
 }
 
@@ -203,10 +195,6 @@ export default {
 }
 
 @media (max-width: 1024px){
-    .section-title > h2 {
-        font-size: 32px;
-    }
-
     .section-video .video-container iframe {
         width: 560px;
         height: 315px;
@@ -214,11 +202,6 @@ export default {
 }
 
 @media (max-width: 768px){
-    .section-title > h2 {
-        font-size: 22px;
-        max-width: calc(100vw - 50px);
-    }
-
     .section-chansons {
         flex-direction: column;
         align-items: center;
