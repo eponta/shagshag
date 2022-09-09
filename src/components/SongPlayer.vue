@@ -82,8 +82,11 @@
           v-bind:albumYear="album.albumYear"
           v-bind:songs="album.tracklist"
           v-bind:selectedSong="selectedSong"
+          v-bind:selectedAlbum="selectedAlbum"
           v-bind:isPlaying="playing"
+          v-bind:next="next"
           v-on:selectSong="selectSong"
+          v-on:noNext="endOfAlbum"
         />
       </div>
     </div>
@@ -101,6 +104,10 @@ export default {
     albums: {
       type: Array,
       required: true
+    },
+    pauseBib: {
+      type: Boolean,
+      required: true,
     }
   },
   data: function () {
@@ -113,13 +120,16 @@ export default {
         songLength: '',
         coverUrl: null
       },
+      selectedAlbum: null,
       select: false,
       loaded: false,
       playing: false,
       ended: false,
       muted: false,
+      next: false,
       audioDuration: 100,
       currentTime: 0,
+      
       /* */
       cssCover: {
         backgroundImage: null
@@ -135,6 +145,11 @@ export default {
           this.cssCover.backgroundImage = `url(${require('@/assets/images/songs/' + this.selectedSong.coverUrl)})`;
       }
     },
+    pauseBib: function (val) {
+      if (val) {
+        this.pauseClick();
+      }
+    }
   },
   computed: {
     audioSrc: function() {
@@ -142,9 +157,9 @@ export default {
     }
   },
   methods: {
-    selectSong(song) {
+    selectSong(song, albumIndex) {
       this.selectedSong = song;
-
+      this.selectedAlbum = albumIndex;
     },
     getCover(song) {
       if (song.coverUrl) {
@@ -170,6 +185,9 @@ export default {
       if (!this.playing) {
         this.$refs.player.play();
         this.playing = true;
+        this.next = false;
+        this.ended = false;
+        this.playBib();
       }
     },
     pauseClick() {
@@ -193,6 +211,15 @@ export default {
     sliderChange() {
       this.$refs.player.currentTime = this.currentTime
     },
+    playNextSong() {
+      this.next = true;
+    },
+    endOfAlbum() {
+      this.next = false;
+    },
+    playBib() {
+      this.$emit('playBib');
+    }
   },
   mounted(){
     /* CSS IMAGE */
@@ -214,6 +241,9 @@ export default {
         this.loaded = true;
         this.$refs.player.play();
         this.playing = true;
+        this.next = false;
+        this.ended = false;
+        this.playBib();
       }.bind(this)
     );
     audio.addEventListener(
@@ -221,7 +251,7 @@ export default {
       function() {
         this.playing = false;
         this.ended = true;
-        console.log('end')
+        this.playNextSong();
       }.bind(this)
     );
     audio.addEventListener(

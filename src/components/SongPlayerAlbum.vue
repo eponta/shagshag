@@ -56,9 +56,29 @@ export default {
       type: Object,
       required: true
     },
+    selectedAlbum: {
+      type: Number,
+      default: null
+    },
     isPlaying: {
       type: Boolean,
       required: true
+    },
+    next: {
+      type: Boolean,
+      required: true
+    }
+  },
+  watch: {
+    next: function (val) {
+      if (val && this.isSelectedAlbum) {
+        this.selectNextSong();
+      }
+    }
+  },
+  computed: {
+    isSelectedAlbum() {
+      return this.albumIndex === this.selectedAlbum;
     }
   },
   methods: {
@@ -71,7 +91,16 @@ export default {
       }
     },
     selectSong(song) {
-      this.$emit('selectSong', song);
+      this.$emit('selectSong', song, this.albumIndex);
+    },
+    selectNextSong() {
+      const nextSong = this.songs.find(element => element.index === this.selectedSong.index + 1);
+      if (nextSong && typeof nextSong != undefined) {
+        this.selectSong(nextSong);
+      }
+      else {
+        this.$emit('noNext');
+      }
     }
   },
 }

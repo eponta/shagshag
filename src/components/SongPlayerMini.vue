@@ -71,6 +71,10 @@
 <script>
 export default {
   props: {
+    index: {
+      type: Number,
+      required: true
+    },
     songUrl: {
       type: String,
       required: true
@@ -82,6 +86,9 @@ export default {
     coverUrl: {
       type: String,
       default: null
+    },
+    playingMini: {
+      type: Number
     }
   },
   data: function () {
@@ -99,6 +106,12 @@ export default {
       if (value !== null) {
           this.cssCover.backgroundImage = `url(${require('@/assets/images/songs/' + this.coverUrl)})`;
       }
+    },
+    playingMini: function (val) {
+      if (val != this.index) {
+        this.$refs.player.pause();
+        this.playing = false;
+      }
     }
   },
   methods: {
@@ -109,6 +122,7 @@ export default {
       }
       else {
         this.$refs.player.play();
+        this.$emit('playMini', this.index);
       }
       this.playing = !this.playing;
     }

@@ -11,9 +11,12 @@
                     <SongPlayerMini
                         v-for="song in latestSongs"
                         :key="song.index"
+                        v-bind:index="song.index"
                         v-bind:songUrl="song.songUrl"
                         v-bind:songTitle="song.songTitle"
                         v-bind:coverUrl="song.coverUrl"
+                        v-bind:playingMini="playingMini"
+                        v-on:playMini="playMini"
                     />
                 </div>
             </div>
@@ -26,6 +29,8 @@
                 <div class="section-playlist">
                     <SongPlayer
                         v-bind:albums="allAlbums"
+                        v-bind:pauseBib="pauseBib"
+                        v-on:playBib="playBib"
                     />
                 </div>
             </div>
@@ -75,7 +80,9 @@ export default {
     data: function () {
         return {
             allAlbums: [],
-            latestSongs: []
+            latestSongs: [],
+            playingMini: null,
+            pauseBib: false,
         }
     },
     methods: {
@@ -100,6 +107,14 @@ export default {
                     coverUrl: song.coverUrl ? song.coverUrl : ''
                 });
             });
+        },
+        playMini(index) {
+            this.pauseBib = true;
+            this.playingMini = index;
+        },
+        playBib() {
+            this.pauseBib = false;
+            this.playingMini = null;
         }
     },
     mounted() {
