@@ -1,12 +1,17 @@
 <template>
   <div class="song-player-album" :class="{'dark-album': albumIndex % 2 === 1}">
-    <!--<div class="album-data">
+    <div class="album-data">
       <span class="album-title">
         {{albumTitle}} - {{albumYear}}
       </span>
     </div>
-    -->
-    <div class="track-row flex-container-row space-between align-center" :class="{'selected-track': song.index === selectedSong.index}" v-for="song in songs" :key="song.index" v-on:click="selectSong(song)">
+   
+    <div class="track-row flex-container-row space-between align-center" 
+      :class="{'selected-track': song.index === selectedSong.index}" 
+      v-for="song in songs" 
+      :key="song.index" 
+      v-on:click="selectSong(song)"
+    >
       <div class="track-info flex-container-row justify-start align-center">
         <img class="track-cover" :src="getCover(song)">
         <div class="flex-container-column align-start">
@@ -68,41 +73,63 @@ export default {
     selectSong(song) {
       this.$emit('selectSong', song);
     }
-  }
-
+  },
 }
 </script>
 
 <style scoped>
+.song-player-album {
+  position: relative;
+
+  --light-bg: #e2ebf0;
+  --light-c: #292525;
+  --light-c2: #535050;
+  --dark-bg: #313138;
+  --dark-c: #f8f8f8;
+  --dark-c2: #c9bcbc;
+  
+}
+
 .dark-album {
   background-color: #313138;
 }
 
 .dark-album .album-data {
-  color: #f7f7f7;
+  background: var(--dark-bg);
+  color: var(--dark-c);
+  border-bottom: 1px solid rgba(134, 134, 134, 0.25);
+  box-shadow: 0px 4px 5px -4px rgba(0, 0, 0, 0.5);
 }
 
 .dark-album .track-title {
-  color: #f8f8f8;
+  color: var(--dark-c);
 }
 
 .dark-album .track-length {
-  color: #f8f8f8;
+  color: var(--dark-c);
 }
 
 .dark-album .track-album {
-  color: #c9bcbc;
+  color: var(--dark-c2);
 }
 
 .album-data {
+  position: sticky;
+  top: 0;
   width: 100%;
   box-sizing: border-box;
   text-align: end;
   font-size: 12px;
   font-style: italic;
-  padding-top: 2px;
+  padding-top: 3px;
+  padding-bottom: 1px;
   padding-left: 10px;
   padding-right: 20px;
+  background: linear-gradient(45deg, #cfd9df 0%, #e2ebf0 50%);
+  background-color: var(--light-bg);
+  border-bottom: 1px solid rgba(134, 134, 134, 0.25);
+  box-shadow: 0px 4px 5px -4px rgba(0, 0, 0, .15);
+  z-index: 999;
 }
 
 .track-row {
@@ -127,7 +154,7 @@ export default {
 }
 
 .dark-album .selected-track {
-  background-color: rgba(216, 142, 223, 0.4);
+  background-color: rgba(151, 236, 191, 0.25);
 }
 
 @keyframes iconWaving {
@@ -158,20 +185,20 @@ export default {
 
 .track-title {
   text-transform: uppercase;
-  color: #292525;
+  color: var(--light-color);
   font-size: 14px;
 }
 
 .track-album {
   text-transform: uppercase;
   font-style: italic;
-  color: #535050;
+  color: var(--light-color2);
   font-size: 11px;
 }
 
 .track-length {
   text-transform: uppercase;
-  color: #000000;
+  color: var(--light-color);
   font-size: 12px;
   margin: 0px 5px;
 }

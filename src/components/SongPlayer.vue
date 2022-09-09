@@ -128,12 +128,13 @@ export default {
   },
   watch: {
     selectedSong: function () {
+      this.loaded = false;
       this.playing = false;
       this.ended = false;
       if (this.selectedSong.coverUrl !== null) {
           this.cssCover.backgroundImage = `url(${require('@/assets/images/songs/' + this.selectedSong.coverUrl)})`;
       }
-    }
+    },
   },
   computed: {
     audioSrc: function() {
@@ -143,6 +144,7 @@ export default {
   methods: {
     selectSong(song) {
       this.selectedSong = song;
+
     },
     getCover(song) {
       if (song.coverUrl) {
@@ -209,7 +211,9 @@ export default {
     audio.addEventListener(
       "canplay",
       function() {
-        this.loaded=true;
+        this.loaded = true;
+        this.$refs.player.play();
+        this.playing = true;
       }.bind(this)
     );
     audio.addEventListener(
@@ -217,6 +221,7 @@ export default {
       function() {
         this.playing = false;
         this.ended = true;
+        console.log('end')
       }.bind(this)
     );
     audio.addEventListener(
@@ -382,7 +387,7 @@ export default {
 
 .tracklist {
   height: 400px;
-  background-image: linear-gradient(45deg, #cfd9df 30%, #e2ebf0 50%);
+  background: linear-gradient(45deg, #cfd9df 30%, #e2ebf0 50%);
   box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.65);
   overflow: auto;
 }

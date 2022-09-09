@@ -631,8 +631,13 @@ export default {
   }
 
   .presentation-content {
+    margin-bottom: 66px;
     padding-left: 15px;
     padding-right: 15px;
+  }
+
+  .presentation-back {
+    bottom: 42px;
   }
 
   .section-title {

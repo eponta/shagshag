@@ -1,3 +1,5 @@
+// *** Fichiers WAV : trop lent en ligne ***
+
 export const AllAlbums = Object.freeze([
   // A.index *
   // B.albumTitle *
@@ -89,6 +91,37 @@ export const AllAlbums = Object.freeze([
         songLength: '2:18',
         coverUrl: 'megateuf.png'
       }
+    ]
+  },
+  {
+    index: 1,
+    albumTitle: 'Reprises',
+    albumYear: '2020s',
+    tracklist: [
+      {
+        index: 9,
+        songUrl: 'reprises/sessionsgarage/daynnite.mp3',
+        songTitle: 'Day\'N\'Nite - Session Garage #1',
+        songAlbum: 'Sessions Garage',
+        songLength: '4:03',
+        coverUrl: 'daynnite.jpg'
+      },
+      {
+        index: 10,
+        songUrl: 'reprises/bedroomcovers/america.mp3',
+        songTitle: 'America - Bedroom Cover #1',
+        songAlbum: 'Bedroom Covers',
+        songLength: '2:14',
+        coverUrl: 'america.jpg'
+      },
+      {
+        index: 11,
+        songUrl: 'reprises/bedroomcovers/enolagay.mp3',
+        songTitle: 'Enola Gay - Bedroom Cover #2',
+        songAlbum: 'Bedroom Covers',
+        songLength: '2:05',
+        coverUrl: 'enolagay.jpg'
+      },
     ]
   },
 ]);
