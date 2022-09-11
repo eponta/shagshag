@@ -21,7 +21,7 @@ export const AllAlbums = Object.freeze([
     tracklist: [
         {
         index: 0,
-        songUrl: 'megateuf/pc.wav',
+        songUrl: 'megateuf/pc.mp3',
         songTitle: 'Piña Colada - Rocktail #1',
         songAlbum: 'MEGATEUF!',
         songLength: '1:16',
@@ -29,7 +29,7 @@ export const AllAlbums = Object.freeze([
       },
       {
         index: 1,
-        songUrl: 'megateuf/lgpdlmdga.wav',
+        songUrl: 'megateuf/lgpdlmdga.mp3',
         songTitle: 'Les Groupes Punk De Lycée Méritent Des Grammy Awards',
         songAlbum: 'MEGATEUF!',
         songLength: '2:47',
@@ -37,7 +37,7 @@ export const AllAlbums = Object.freeze([
       },
       {
         index: 2,
-        songUrl: 'megateuf/lgdb.wav',
+        songUrl: 'megateuf/lgdb.mp3',
         songTitle: 'Les Groupies du bassiste',
         songAlbum: 'MEGATEUF!',
         songLength: '3:02',
@@ -45,7 +45,7 @@ export const AllAlbums = Object.freeze([
       },
       {
         index: 3,
-        songUrl: 'megateuf/sll.wav',
+        songUrl: 'megateuf/sll.mp3',
         songTitle: 'Saouls, la lune',
         songAlbum: 'MEGATEUF!',
         songLength: '2:20',
@@ -53,7 +53,7 @@ export const AllAlbums = Object.freeze([
       },
       {
         index: 4,
-        songUrl: 'megateuf/mm.wav',
+        songUrl: 'megateuf/mm.mp3',
         songTitle: 'Moscow Mule - Rocktail #2',
         songAlbum: 'MEGATEUF!',
         songLength: '2:20',
@@ -61,7 +61,7 @@ export const AllAlbums = Object.freeze([
       },
       {
         index: 5,
-        songUrl: 'megateuf/ledd.wav',
+        songUrl: 'megateuf/ledd.mp3',
         songTitle: 'L\'Étage des dieux',
         songAlbum: 'MEGATEUF!',
         songLength: '4:31',
@@ -69,7 +69,7 @@ export const AllAlbums = Object.freeze([
       },
       {
         index: 6,
-        songUrl: 'megateuf/rdlcp2.wav',
+        songUrl: 'megateuf/rdlcp2.mp3',
         songTitle: 'Rue de la chartité pt.2',
         songAlbum: 'MEGATEUF!',
         songLength: '3:36',
@@ -77,7 +77,7 @@ export const AllAlbums = Object.freeze([
       },
       {
         index: 7,
-        songUrl: 'megateuf/ll.wav',
+        songUrl: 'megateuf/ll.mp3',
         songTitle: 'Lynchburg Lemonade - Rocktail #3',
         songAlbum: 'MEGATEUF!',
         songLength: '1:59',
@@ -85,7 +85,7 @@ export const AllAlbums = Object.freeze([
       },
       {
         index: 8,
-        songUrl: 'megateuf/clf.wav',
+        songUrl: 'megateuf/clf.mp3',
         songTitle: 'Chez les filles',
         songAlbum: 'MEGATEUF!',
         songLength: '2:18',
@@ -132,7 +132,7 @@ export const AllAlbums = Object.freeze([
     //3.coverUrl
     {
       index: 0,
-      songUrl: 'clf.wav',
+      songUrl: 'clf.mp3',
       songTitle: 'Chez les filles',
       songAlbum: 'Chez les filles - Single',
       songLength: '2:18',
@@ -140,7 +140,7 @@ export const AllAlbums = Object.freeze([
     },
     {
       index: 1,
-      songUrl: 'lgpdlmdga.wav',
+      songUrl: 'lgpdlmdga.mp3',
       songTitle: 'Les Groupes Punk De Lycée Méritent Des Grammy Awards',
       songAlbum: 'Les Groupes Punk De Lycée Méritent Des Grammy Awards - Single',
       songLength: '2:47',
@@ -148,7 +148,7 @@ export const AllAlbums = Object.freeze([
     },
     {
       index: 2,
-      songUrl: 'sll.wav',
+      songUrl: 'sll.mp3',
       songTitle: 'Saouls, la lune',
       songAlbum: 'Saouls, la lune - Single',
       songLength: '2:20',
