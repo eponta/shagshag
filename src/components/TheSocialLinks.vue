@@ -214,7 +214,7 @@ export default {
   .slink-cnt {
     width: 34px;
     height: 34px;
-    margin: 0px 3px;
+    margin: 0px 4px;
   } 
 
   .spotify-slink {

@@ -1,5 +1,15 @@
 <template>
   <div class="the-footer-gif-section">
+    <div class="gif-container g-l1">
+      <img src="../assets/gifs/rick-8bit.gif" alt="Wubba Lubba Dub Dub" height="52px">
+      <div class="gif-shadow-line">
+      </div>
+    </div>
+    <div class="gif-container g-l2">
+      <img src="../assets/gifs/morty-8bit.gif" alt="Oh jeez" height="52px">
+      <div class="gif-shadow-line">
+      </div>
+    </div>
     <div class="gif-container g-cr1">
       <img src="../assets/gifs/doc-8bit.gif" alt="Nom de Zeus!" height="50px">
       <div class="gif-shadow-line">
@@ -175,6 +185,16 @@ export default {
   background: radial-gradient(rgba(255,255,255,0.33) 50%, rgba(0,0,0,0) 50%);
 }
 
+.g-l1 {
+  bottom: 5px;
+  left: 90px;
+}
+
+.g-l2 {
+  bottom: 5px;
+  left: 125px;
+}
+
 .g-cg1 {
   bottom: 5px;
   left: calc(50% - 176px);
@@ -283,7 +303,11 @@ export default {
   }
 }
 
-@media (max-width: 7px){
+@media (max-width: 767px){
+  .g-l1, .g-l2 {
+    display: none;
+  }
+
   .g-cg1 {
     left: calc(50% - 150px);
   }
