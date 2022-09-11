@@ -221,7 +221,7 @@ p {
   }
 }
 
-@media (max-width: 768px){
+@media (max-width: 767px){
   .section-double-image-text {
     flex-direction: column;
 

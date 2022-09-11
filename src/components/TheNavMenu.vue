@@ -151,7 +151,7 @@ export default {
   }
 }
 
-@media (max-width: 768px){
+@media (max-width: 767px){
   .nav-menu-container {
     visibility: hidden;
     position: fixed;

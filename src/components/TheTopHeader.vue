@@ -59,7 +59,7 @@ export default {
   }
 }
 
-@media (max-width: 768px){
+@media (max-width: 767px){
   .the-top-header {
     min-height: var(--hd-height-sm);
   }  

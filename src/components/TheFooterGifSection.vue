@@ -283,7 +283,7 @@ export default {
   }
 }
 
-@media (max-width: 768px){
+@media (max-width: 7px){
   .g-cg1 {
     left: calc(50% - 150px);
   }

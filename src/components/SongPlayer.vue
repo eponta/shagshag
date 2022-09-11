@@ -476,7 +476,7 @@ export default {
   }
 }
 
-@media (max-width: 768px){
+@media (max-width: 767px){
   .song-player {
     flex-direction: column;
     align-items: center;

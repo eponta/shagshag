@@ -206,9 +206,16 @@ export default {
     width: 30px;
     height: 30px;
   }
+
+  .pause-button {
+    top: 80px;
+    left: 80px;
+    width: 30px;
+    height: 30px;
+  }
 }
 
-@media (max-width: 768px){
+@media (max-width: 767px){
   .song-player-mini {
     margin-bottom: 50px;
   }

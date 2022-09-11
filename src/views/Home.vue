@@ -576,7 +576,7 @@ export default {
   }
 }
 
-@media (max-width: 768px){
+@media (max-width: 767px){
   .bg-presentaion-cnt img {
     width: 160%;
     margin-left: -30%;

@@ -79,7 +79,7 @@ export default {
   }
 }
 
-@media (max-width: 768px){
+@media (max-width: 767px){
   .main-title {
     font-size: 36px;
     padding-left: 8px;

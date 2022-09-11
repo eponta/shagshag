@@ -259,7 +259,7 @@ export default {
   }
 }
 
-@media (max-width: 768px){
+@media (max-width: 767px){
   .track-row {
     width: 250px;
     padding: 5px 7px;

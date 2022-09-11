@@ -135,7 +135,7 @@ h5 {
   }
 }
 
-@media (max-width: 768px){
+@media (max-width: 767px){
   .footer-name-start {
     margin-left: 0;
   }
