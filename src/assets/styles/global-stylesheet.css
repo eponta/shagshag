@@ -222,6 +222,15 @@ img {
     height: 100%;
 }
 
+.fit-max-width {
+    max-width: fit-content;
+}
+
+.fit-height {
+    height: fit-content;
+}
+
+
 .pad-5 {
     padding: 5px;
 }

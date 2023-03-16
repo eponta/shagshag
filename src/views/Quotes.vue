@@ -79,8 +79,8 @@
       v-bind:imageFirst="false"
       v-bind:imageUrl="'bud-ombrages.jpeg'"
       v-bind:imageAlt="''"
-      v-bind:textTitle="'...'"
-      v-bind:textArray="[]"
+      v-bind:textTitle="'LA NUIT SUR LONDON'"
+      v-bind:textArray="['Résonnent les Gibsons']"
       v-bind:sectionColor="'#f2f2f2'"
       v-bind:sectionPadding="'100px'"
     />
@@ -109,8 +109,8 @@
       v-bind:imageFirst="true"
       v-bind:imageUrl="'clo-enfeus.jpeg'"
       v-bind:imageAlt="''"
-      v-bind:textTitle="'...'"
-      v-bind:textArray="[]"
+      v-bind:textTitle="'CHEMISE HAWAII'"
+      v-bind:textArray="['Parfum de gin']"
       v-bind:sectionBackground="'ghostwhite'"
     />
     <SectionImageText 
@@ -118,8 +118,8 @@
       v-bind:imageFirst="false"
       v-bind:imageUrl="'bob-ombrages.jpeg'"
       v-bind:imageAlt="''"
-      v-bind:textTitle="'...'"
-      v-bind:textArray="[]"
+      v-bind:textTitle="'LES PREMIÈRES GORGÉES DE BIÈRE'"
+      v-bind:textArray="['Sur des solos de slap bass']"
       v-bind:sectionColor="'#f2f2f2'"
       v-bind:sectionPadding="'100px'"
     />
@@ -154,7 +154,7 @@
     <SectionImageText 
       v-bind:directionRow="true"
       v-bind:imageFirst="false"
-      v-bind:imageUrl="'megateuf-wayne.webp'"
+      v-bind:imageUrl="'megateuf-wayne.jpg'"
       v-bind:imageAlt="'Les Groupes Punk De Lycée Méritent Des Grammy Awards'"
       v-bind:textTitle="'EXCELLENT! MEGATEUF!'"
       v-bind:textArray="['Schwiiiiing, chapiteau !', 'Le sphincter a dit quoi ?']"
@@ -169,6 +169,24 @@
       v-bind:textArray="['C\'est dingue !']"
       v-bind:sectionBackground="'white'"
     />
+    <SectionImageText 
+      v-bind:directionRow="true"
+      v-bind:imageFirst="false"
+      v-bind:imageUrl="'mixtape-tracklist.png'"
+      v-bind:imageAlt="'Cèpelist'"
+      v-bind:textTitle="'BIENVENUE AU TIKI BAR'"
+      v-bind:textArray="['Vous sers-je ?']"
+      v-bind:sectionColor="'#f2f2f2'"
+    />
+    <SectionImageText 
+      v-bind:directionRow="true"
+      v-bind:imageFirst="true"
+      v-bind:imageUrl="'megatube-bass.jpeg'"
+      v-bind:imageAlt="'Oh le mégatube, quoi !'"
+      v-bind:textTitle="'JE T\'AI VU LÀ-BAS'"
+      v-bind:textArray="['T\'as pas hésité une seconde...', 'C\'est une qualité rare Johnny dans ce monde']"
+      v-bind:sectionBackground="'darkturquoise'"
+    />
   </div>
   <!--
     But the fool on the hill
@@ -176,7 +194,7 @@
     And the eyes in his head
     See the world spinning round
 
-    Je t'ai vu la-bas, t'as pas hésité une seconde... C'est une qualité rare Johnny dans ce monde
+    
   -->
 </template>
 
