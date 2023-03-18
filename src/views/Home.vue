@@ -133,271 +133,32 @@
             DERNIÈRES VIDÉOS
         </h2>
     </div>
-    <div class="section-video flex-container-row">
-      <div class="video-container flex-container-column flex-1 align-center justify-center">
-        <div class="tv-antenna flex-container-row fit-max-width align-center justify-center">
-          <div
-            style="
-              position: relative;
-              width: 0px;
-              height: 300px;
-              margin-bottom: -40px;
-              margin-left: 15px;
-              margin-right: 90px;
-              border: 3px rgb(55, 55, 55) solid;
-              transform: rotate(-38deg);
-            "
-          >
-            <div
-              style="
-                position: absolute;
-                top: -15px;
-                left: -15px;
-                width: 20px;
-                height: 20px;
-                background: #b0b0b0;
-                border: 4px rgb(35, 35, 35) solid;
-                border-radius: 100px;
-              "
-            ></div>
-          </div>
-          <div
-            style="
-              position: relative;
-              width: 0px;
-              height: 300px;
-              margin-bottom: -40px;
-              margin-left: 90px;
-              border: 3px rgb(55, 55, 55) solid;
-              transform: rotate(48deg);
-            "
-          >
-            <div
-              style="
-                position: absolute;
-                top: -15px;
-                right: -15px;
-                width: 20px;
-                height: 20px;
-                background: #c0c0c0;
-                border: 4px rgb(35, 35, 35) solid;
-                border-radius: 100px;
-              "
-            ></div>
-          </div>
-          <div
-            style="
-              position: absolute;
-              bottom: -45px;
-              width: 115px;
-              height: 80px;
-              background: linear-gradient(50deg, #808080, #c0c0c0);
-              border: 4px rgb(35, 35, 35) solid;
-              border-radius: 100%;
-            "
-          ></div>
-        </div>
-        <div class="tv-screen flex-container-row fit-max-width align-center justify-center">
-          <div class="tv-iframe-container">
-            <iframe width="540" 
-                    height="480" 
-                    src="https://www.youtube.com/embed/videoseries?list=PL589rzD4Hvmp8dqKaI4z285yYTqGrreTi&autoplay=1&mute=1" 
-                    title="YouTube video player" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                    :style="{display: tvOn ? 'inline' : 'none'}"
-            >
-            </iframe>
-          </div>
-          <div class="flex-container-column align-center justify-center" style="margin-left: 35px;">
-            <div
-              class="flex-container-column fit-height align-center justify-center"
-              style="
-                width: 110px;
-                margin-top: 15px;
-                padding: 30px 0;
-                background-color: #e0e0e0;
-                border: 4px solid black;
-                border-radius: 15px;
-              "
-            >
-              <div
-                v-on:click="turnBtn(1)"
-                class="tv-btn tv-btn-1"
-                style="
-                  position: relative;
-                  width: 75px;
-                  height: 75px;
-                  border: 4px solid black;
-                  border-radius: 100px;
-                  margin-bottom: 25px;
-                  cursor: pointer;
-                "
-              ></div>
-              <div
-                v-on:click="turnBtn(2)"
-                class="tv-btn tv-btn-2"
-                style="
-                  position: relative;
-                  width: 75px;
-                  height: 75px;
-                  border: 4px solid black;
-                  border-radius: 100px;
-                  cursor: pointer;
-                "
-              ></div>
-            </div> 
-            <div
-              style="
-                width: 110px;
-                margin-top: 35px;
-                border: 2px solid black;
-                border-radius: 100px;
-              "
-            >
-            </div>
-            <div
-              style="
-                width: 110px;
-                margin-top: 16px;
-                border: 2px solid black;
-                border-radius: 100px;
-              "
-            >
-            </div>
-            <div
-              style="
-                width: 110px;
-                margin-top: 17px;
-                border: 2px solid black;
-                border-radius: 100px;
-              "
-            >
-            </div>
-            <div
-              style="
-                width: 110px;
-                margin-top: 15px;
-                border: 2px solid black;
-                border-radius: 100px;
-              "
-            >
-            </div>
-            <div
-              style="
-                width: 110px;
-                margin-top: 18px;
-                border: 2px solid black;
-                border-radius: 100px;
-              "
-            >
-            </div>
-            <div 
-              class="flex-container-row align-end justify-center"
-              style="margin-top: 30px;"
-            >
-              <div class="flex-container-column align-center justify-center">
-                <div style="font-weight: 900; font-size: 11px; margin-bottom: 3px">
-                  POWER
-                </div>
-                <div
-                  v-on:click="powerTv"
-                  class="tv-power-btn"
-                ></div>
-              </div>
-              <div
-                v-on:click="powerTv"
-                class="tv-power-led"
-                style="
-                  width: 16px;
-                  height: 16px;
-                  margin-left: 25px;
-                  margin-bottom: 2px;
-                  border: 4px solid black;
-                  border-radius: 100px;
-                "
-                :style="{background: tvOn ? 'red' : '#333'}"
-              ></div>
-            </div>
-          </div>
-        </div>
-        <div class="tv-feet flex-container-row align-center justify-center">
-          <div
-            style="
-              position: relative;
-              width: 0px;
-              height: 80px;
-              margin-top: -20px;
-              margin-right: 250px;
-              border-right: 50px transparent solid;
-              border-left: 10px transparent solid;
-              border-top: 230px rgb(35, 35, 35) solid;
-              transform: rotate(18deg);
-            "
-          >
-            <div
-              style="
-                position: absolute;
-                top: -255px;
-                left: -8px;
-                border-right: 50px transparent solid;
-                border-left: 10px transparent solid;
-                border-top: 230px #c0c0c0 solid;
-              "
-            >
-            </div>
-          </div>
-          <div
-            style="
-              position: relative;
-              width: 0px;
-              height: 80px;
-              margin-top: -20px;
-              margin-left: 250px;
-              border-right: 10px transparent solid;
-              border-left: 50px transparent solid;
-              border-top: 230px rgb(35, 35, 35) solid;
-              transform: rotate(-18deg);
-            "
-          >
-            <div
-              style="
-                position: absolute;
-                top: -255px;
-                right: -8px;
-                border-right: 10px transparent solid;
-                border-left: 50px transparent solid;
-                border-top: 230px #c5c5c5 solid;
-              "
-            >
-            </div>
-          </div>
-          <div
-            style="
-              position: absolute;
-              bottom: 90px;
-              left: -20px;
-              right: -20px;
-              height: 10px;
-              background: black;
-            "
-          ></div>
-        </div>
-      </div>
+    <div class="section-video flex-container-column">
+      <VideoPlayerTv 
+        :youtubeSrc="latestVideo"
+      />
+      <VideoPlayeriPod 
+        :youtubeSrc="latestVideo"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import VideoPlayerTv from '../components/VideoPlayerTv'
+import VideoPlayeriPod from '../components/VideoPlayeriPod'
+
 export default {
   name: 'Home',
+  components: {
+    VideoPlayerTv,
+    VideoPlayeriPod
+  },
   data: function () {
     return {
-      videoId: 'GkENaIj1L0c',
+      latestVideo: 'https://www.youtube.com/embed/videoseries?list=PL589rzD4Hvmp8dqKaI4z285yYTqGrreTi&autoplay=1&mute=1',
       selectedDude: null,
       hoveredDude: null,
-      tvOn: true,
     }
   },
   methods: {
@@ -412,12 +173,6 @@ export default {
     hoverDude(dude) {
       this.hoveredDude = dude;
     },
-    turnBtn(btnId) {
-      this.$el.querySelector(`.tv-btn-${btnId}`).style.setProperty('--tv-btn-angle', `rotate(${Math.random() * 360}deg)`);
-    },
-    powerTv() {
-      this.tvOn = !this.tvOn;
-    }
   },
   computed: {
     isCloActive() {
@@ -429,18 +184,11 @@ export default {
     isBudActive() {
       return this.hoveredDude === 'bud' || (!this.hoveredDude && this.selectedDude === 'bud') ? true : false;
     }
-  },
-  mounted() {
-      this.$el.querySelector('.tv-btn-1').style.setProperty('--tv-btn-angle', `rotate(${Math.random() * 360}deg)`);
-      this.$el.querySelector('.tv-btn-2').style.setProperty('--tv-btn-angle', `rotate(${Math.random() * 360}deg)`);
   }
 }
 </script>
 
 <style scoped>
-:root {
-  --tv-btn-angle: 'rotate(0deg)';
-}
 
 .home {
   margin-bottom: 40px;
@@ -491,33 +239,10 @@ export default {
   width: 29.3%;
 }
 
-/*.shadow-clo {
-  bottom: 6.444444%;
-  left: 19.833333%;
-  height: 78.888889;
-  width: 22.833333%;
-}
-
-.shadow-bob {
-  bottom: 4.666667%;
-  right: 37.666667%;
-  height: 73.777778%;
-  width: 20.833333%;
-}
-
-.shadow-bud {
-  bottom: 3.555556%;
-  right: 13.833333%;
-  height: 77.555556%;
-  width: 29%;
-}*/
-
 .presentation-txt-cnt {
   position: fixed;
   top: 71px;
   height: calc(100vh - var(--hd-height));
-  /* position: fixed; */
-  /* top: calc(10% + 71px); */
 
   display: flex;
   flex-direction: column;
@@ -592,7 +317,6 @@ export default {
   align-items: center;
   justify-content: space-between;
 
-  /* background: linear-gradient(45deg, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0) 100%); */
   background: linear-gradient(45deg, rgba(0, 0, 0, 0.45) 60%, rgba(0, 0, 0, 0) 100%);
 
   border: 1px solid black;
@@ -604,7 +328,6 @@ export default {
   flex: 1;
 
   border-right: 1px solid black;
-  /* margin-right: 10px; */
   padding-left: 12px;
   padding-top: 7px;
 
@@ -615,24 +338,7 @@ export default {
   text-align: center;
 }
 
-/* .presentation-hd > h2 {
-  flex: 1;
-
-  border-right: 1px solid black;
-  padding-left: 10px;
-
-  font-size: 32px;
-} */
-
 @keyframes rotete {
-  /* 0% {transform: rotate(0deg);}
-  7% {transform: rotate(0deg);}
-  15% {transform: rotate(10deg);}
-  30% {transform: rotate(-10deg);}
-  45% {transform: rotate(10deg);}
-  52% {transform: rotate(0deg);}
-  100% {transform: rotate(0deg);} */
-
   0% {transform: rotate(0deg);}
   5% {transform: rotate(0deg);}
   10% {transform: rotate(10deg);}
@@ -655,7 +361,6 @@ export default {
 .tete-img {
   flex: 0;
 
-  /* height: 40px; */
   height: 48px;
 
   padding: 2px;
@@ -747,93 +452,7 @@ export default {
 
 .section-video {
   background-color: black;
-  margin-bottom: 250px;
-}
-
-.video-container {
-  padding: 20px;
-  background: black;
-}
-
-.video-container h2 {
-  color: white;
-  margin-bottom: 20px;
-}
-
-.tv-antenna {
-  position: relative;
-  z-index: 6;
-}
-
-.video-container .tv-screen {
-  padding: 35px;
-  background: linear-gradient(35deg, #ababab, #c0c0c0);
-  background: linear-gradient();
-  border: 5px solid rgb(35, 35, 35);
-  border-radius: 20px;
-  z-index: 9;
-}
-
-.video-container iframe {
-  /* max-width: 70%; */
-}
-
-.video-container .tv-iframe-container {
-  width: 540px;
-  height: 480px;
-  box-sizing: content-box;
-  padding: 0 50px;
-  background: black;
-  border: 1px solid black;
-  border-radius: 40px;
-
-  /* background-image: url(../assets/images/tetes/tete-bob.png); */
-  background-repeat: no-repeat;
-  background-position: 50%;
-  background-size: 100px;
-}
-
-.tv-btn {
-  background: #888;
-}
-.tv-btn:hover {
-  background: #777;
-}
-
-.tv-btn::after {
-  content: '';
-  position: absolute;
-  top: calc(50% - 49px);
-  left: calc(50% - 19px);
-  width: 30px;
-  height: 90px;
-  background: linear-gradient(45deg, #888, #AAA);
-  border: 4px solid black;
-  border-radius: 2px;
-  transform: var(--tv-btn-angle);
-}
-.tv-btn:hover::after {
-  background: linear-gradient(45deg, #777, #999);
-}
-
-.tv-power-btn {
-  width: 43px;
-  height: 20px;
-  background: #e0e0e0;
-  border: 4px solid black;
-  cursor: pointer;
-  transition: 0.075s;
-}
-.tv-power-btn:hover {
-  background: #444;
-}
-
-.tv-power-led {
-}
-
-.tv-feet {
-  position: relative;
-  z-index: 7;
+  margin-bottom: 100px;
 }
 
 @media (max-width: 1200px){
@@ -973,10 +592,6 @@ export default {
 
   .section-video {
     margin-bottom: 100px;
-  }
-
-  .video-container iframe {
-    max-width: 95%;
   }
 }
 </style>
