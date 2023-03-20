@@ -135,10 +135,10 @@
     </div>
     <div class="section-video flex-container-column">
       <VideoPlayerTv 
-        :youtubeSrc="latestVideo"
+        :youtubeSrc="latestVideoTv"
       />
       <VideoPlayeriPod 
-        :youtubeSrc="latestVideo"
+        :youtubeSrc="latestVideoiPod"
       />
     </div>
   </div>
@@ -156,7 +156,8 @@ export default {
   },
   data: function () {
     return {
-      latestVideo: 'https://www.youtube.com/embed/videoseries?list=PL589rzD4Hvmp8dqKaI4z285yYTqGrreTi&autoplay=1&mute=1',
+      latestVideoTv: 'https://www.youtube.com/embed/videoseries?list=PL589rzD4Hvmp8dqKaI4z285yYTqGrreTi&autoplay=1&mute=0',
+      latestVideoiPod: 'https://www.youtube.com/embed/videoseries?list=PL589rzD4Hvmp8dqKaI4z285yYTqGrreTi&autoplay=1&mute=0&controls=0&modestbranding=1', 
       selectedDude: null,
       hoveredDude: null,
     }
