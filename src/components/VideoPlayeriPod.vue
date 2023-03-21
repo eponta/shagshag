@@ -1,5 +1,5 @@
 <template>
-  <div class="video-player-ipod ipod-container flex-container-column align-center justify-center">
+  <div class="video-player-ipod ipod-container flex-container-column align-center justify-center" :class="iPodClass">
     <div 
       ref="ipod"
       class="ipod flex-container-column align-center space-between"
@@ -8,7 +8,7 @@
       <div 
         ref="ipodScreen"
         class="ipod-screen"
-        :style="{height: `${ipodScreenWidth * coefiPodScreen}px`}"
+        :style="{height: `${ipodScreenWidth * coefScreen}px`}"
       >
         <div class="ipod-iframe-container" :class="iPodOn ? 'ipod-on' : 'ipod-off'">
           <youtube 
@@ -49,25 +49,28 @@
         </div>
       </div>
     </div>
-    <!-- <div class="ipod-volume-container">
-      <input class="ipod-volume-slider" type="range" v-model="playerVolume" min="0" max="100">
-    </div> -->
   </div>
 </template>
 
 <script>
+
+
 export default {
   name: 'VideoPlayeriPod',
   data: function () {
     return {
-      //iPod
+      //const
+      COEF_IPOD_CLASSIC: 1.70769230769,
+      COEF_IPOD_CLASSIC_SCREEN: 0.75,
+      COEF_IPOD_NANO: 2.34366925065,
+      COEF_IPOD_NANO_SCREEN: 1.33333333333,
+      //iPod - 0 : classic - 1 : nano
+      iPodType: 0,
       iPodOn: true,
       clicked: null,
       ipodWidth: 260,
       ipodScreenWidth: 216,
       ipodControlsWidth: 162,
-      coefiPod: 1.70769230769,
-      coefiPodScreen: 0.75,
       //YT
       playerVars: {
         loop: 1,
@@ -79,9 +82,9 @@ export default {
     }
   },
   watch: {
-    playerVolume(val) {
-      this.setVolume(val);
-    }
+    // playerVolume(val) {
+    //   this.setVolume(val);
+    // }
   },
   props: {
     youtubeSrc: {
@@ -92,19 +95,82 @@ export default {
   computed: {
     player() {
       return this.$refs.youtube.player;
+    },
+    coefiPod() {
+      if (this.iPodType === 0) {
+        return this.COEF_IPOD_CLASSIC;
+      }
+      else if (this.iPodType === 1) {
+        return this.COEF_IPOD_NANO;
+      }
+      else {
+        return this.COEF_IPOD_CLASSIC;
+      }
+    },
+    coefScreen() {
+      if (this.iPodType === 0) {
+        return this.COEF_IPOD_CLASSIC_SCREEN;
+      }
+      else if (this.iPodType === 1) {
+        return this.COEF_IPOD_NANO_SCREEN;
+      }
+      else {
+        return this.COEF_IPOD_CLASSIC_SCREEN;
+      }
+    },
+    iPodClass() {
+      if (this.iPodType === 0) {
+        return 'classic';
+      }
+      else if (this.iPodType === 1) {
+        return 'nano';
+      }
+      else {
+        return 'classic';
+      }
     }
   },
   methods: {
     //BUTTONS
+    clickWest() {
+      this.clicked = 'west';
+      this.player.previousVideo();
+    },
+    clickNorth() {
+      this.clicked = 'north';
+      if (this.iPodType === 0) {
+        this.iPodType = 1
+      }
+      else if (this.iPodType === 1) {
+        this.iPodType = 0
+      }
+      else {
+        this.iPodType = 0
+      }
+      setTimeout(this.resizeHandler, 1);
+    },
+    clickSouth() {
+      this.clicked = 'south';
+      if (this.playerState === -1 || this.playerState === 2 || this.playerState === 0) {
+        this.playVideo();
+      }
+      else if (this.playerState === 1) {
+        this.pauseVideo();
+      }
+    },
+    clickEast() {
+      this.clicked = 'east';
+      this.player.nextVideo();
+    },
     playVideo() {
       this.player.playVideo();
     },
     pauseVideo() {
       this.player.pauseVideo();
     },
-    setVolume() {
-      this.player.setVolume(this.playerVolume);
-    },
+    // setVolume() {
+    //   this.player.setVolume(this.playerVolume);
+    // },
     //YOUTUBE
     ready() {
       this.playerState = -1;
@@ -123,27 +189,6 @@ export default {
     },
     cued() {
       this.playerState = 5;
-    },
-    clickWest() {
-      this.clicked = 'west';
-      this.player.previousVideo();
-    },
-    clickNorth() {
-      this.clicked = 'north';
-      console.log('menu');
-    },
-    clickSouth() {
-      this.clicked = 'south';
-      if (this.playerState === -1 || this.playerState === 2 || this.playerState === 0) {
-        this.playVideo();
-      }
-      else if (this.playerState === 1) {
-        this.pauseVideo();
-      }
-    },
-    clickEast() {
-      this.clicked = 'east';
-      this.player.nextVideo();
     },
     resizeHandler() {
       this.ipodWidth = this.$refs.ipod.clientWidth + 2;
@@ -166,11 +211,15 @@ export default {
 </script>
 
 <style scoped>
-.video-player-ipod {
-  padding: max(20px, calc((100% - 200px) / 5));
+.video-player-ipod.classic {
+  padding: clamp(20px, calc((100% - 200px) / 5), 67px);
 }
 
-.ipod {
+.video-player-ipod.nano {
+  padding: clamp(57px, calc((100% - 91px) / 3.12), 142px);
+}
+
+.classic .ipod {
   min-width: 260px;
   max-width: 400px;
   min-height: 444px;
@@ -186,7 +235,31 @@ export default {
   background-image: radial-gradient(ellipse at 49% 35%, whitesmoke 0%, gainsboro 60%, dimgray 110%);
 }
 
-.ipod-screen {
+.nano .ipod {
+  min-width: 166px;
+  max-width: 250px;
+  min-height: 389px;
+  width: 100%;
+  padding: clamp(11px, calc(100% / 15.11), 16.56px);
+  box-sizing: border-box;
+  border: 1px solid #555555;
+  border-radius: 40% / 2px;
+  box-shadow: 
+      15px 0px 17px -5px rgba(124, 124, 124, 0.5) inset,
+      -15px 0px 15px -5px rgba(105, 105, 105, 0.5) inset,
+      5px 0px 6px -4px rgba(0, 0, 0, 0.8) inset,
+      -5px 0px 4px -4px rgba(0, 0, 0, 0.8) inset,
+      100px 0px 100px -150px rgb(30, 30, 30, 0.9) inset,
+      6px 0px 2px -4px rgba(50, 50, 50, 0.15) inset,
+      -6px 0px 2px -4px rgba(50, 50, 50, 0.05) inset,
+      0px -1px 3px rgba(50, 50, 50, 0.05),
+      0px 1px 5px rgba(50, 50, 50, 0.2),
+      0px 0px 60px rgba(255, 255, 255, 0.1);
+  background-color: #e0e0e0;
+  background-image: linear-gradient(90deg, dimgray -50%, #d8d8d8 15%, #fafafa 49%, #cdcdcd 80%, dimgray 150%);
+}
+
+.classic .ipod-screen {
   min-width: 216px;
   min-height: 162px;
   width: 100%;
@@ -197,9 +270,22 @@ export default {
   z-index: 99;
 }
 
+.nano .ipod-screen {
+  min-width: 142px;
+  height: 173px;
+  width: 100%;
+  height: 173px;
+  box-sizing: border-box;
+  border: 6px black solid;
+  border-radius: 5px;
+  background: white;
+  z-index: 99;
+}
+
 .ipod-iframe-container {
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
 }
 
 .ipod-iframe-container iframe {
@@ -207,7 +293,7 @@ export default {
   max-height: 100%;
 }
 
-.ipod-controls {
+.classic .ipod-controls {
   position: relative;
   min-height: 162px;
   max-height: 250px;
@@ -220,7 +306,20 @@ export default {
   z-index: 95;
 }
 
-.ipod-controls-ilot {
+.nano .ipod-controls {
+  position: relative;
+  min-height: 118px;
+  max-height: 181px;
+  width: clamp(118px, calc(100% / 1.38333333333), 181px);
+  height: 118px;
+  margin-bottom: clamp(24px, calc((100% - 59px) / 3.48), 45px);
+  border: 1px solid #2d2d2d;
+  border-radius: 100px;
+  background: linear-gradient(90deg, #2d2d2d 0%, #353535 35%, #353535 65%, #2c2c2c 100%);
+  z-index: 95;
+}
+
+.classic .ipod-controls-ilot {
   position: absolute;
   top: calc(50% - (100% / (2.61290322581 * 2)));
   left: calc(50% - (100% / (2.61290322581 * 2)));
@@ -234,7 +333,20 @@ export default {
   z-index: 97;
 }
 
-.ipod-controls-pad {
+.nano .ipod-controls-ilot {
+  position: absolute;
+  top: calc(50% - (100% / (2.14285714286 * 2)));
+  left: calc(50% - (100% / (2.14285714286 * 2)));
+  width: calc(100% / 2.14285714286);
+  height: calc(100% / 2.14285714286);
+  box-sizing: border-box;
+  border-radius: 100px;
+  background-color: gainsboro;
+  background: radial-gradient(#e0e0e0, #ebebeb);
+  z-index: 97;
+}
+
+.classic .ipod-controls-pad {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -245,6 +357,15 @@ export default {
   background-size: 250% 250%;
   background-position: 50% 50%, 50% 50%;
   border-radius: 999px;
+  z-index: 96;
+}
+
+.nano .ipod-controls-pad {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 96;
 }
 .clicked-west {
@@ -325,34 +446,34 @@ export default {
   }
 }
 
-.ipod-controls-btn {
+.classic .ipod-controls-btn {
   background-repeat: no-repeat;
   opacity: 0.65;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-.btn-west {
+.classic .btn-west {
   width: 100%;
   height: calc(100% / 3);
   background-image: url(../assets/icons/ipod-backward.png);
   background-position: 23% 50%;
   background-size: calc(100% / 3.375);
 }
-.btn-north {
+.classic .btn-north {
   width: 100%;
   height: calc(100% / 3);
   background-image: url(../assets/icons/ipod-menu.png);
   background-position: 50% 20%;
   background-size: calc(100% / 1.6875);
 }
-.btn-south {
+.classic .btn-south {
   width: 100%;
   height: calc(100% / 3);
   background-image: url(../assets/icons/ipod-play-pause.png);
   background-position: 50% 82%;
   background-size: calc(100% / 2.842);
 }
-.btn-east {
+.classic .btn-east {
   width: 100%;
   height: calc(100% / 3);
   background-image: url(../assets/icons/ipod-forward.png);
@@ -360,14 +481,38 @@ export default {
   background-size: calc(100% / 3.375);
 }
 
-.ipod-volume-container {
-  margin-top: 20px;
+.nano .ipod-controls-btn {
+  background-repeat: no-repeat;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
-
-.ipod-volume-slider {
-  background: red;
-  background-color: yellow;
-  height: 20px;
+.nano .btn-west {
+  width: 100%;
+  height: calc(100% / 3);
+  background-image: url(../assets/icons/ipod-backward-white.png);
+  background-position: 37% 50%;
+  background-size: calc(100% / 3.33333333333);
+}
+.nano .btn-north {
+  width: 100%;
+  height: calc(100% / 3);
+  background-image: url(../assets/icons/ipod-menu-white.png);
+  background-position: 50% 26%;
+  background-size: calc(100% / 1.42857142857);
+}
+.nano .btn-south {
+  width: 100%;
+  height: calc(100% / 3);
+  background-image: url(../assets/icons/ipod-play-pause-white.png);
+  background-position: 50% 72%;
+  background-size: calc(100% / 2.5);
+}
+.nano .btn-east {
+  width: 100%;
+  height: calc(100% / 3);
+  background-image: url(../assets/icons/ipod-forward-white.png);
+  background-position: 63% 50%;
+  background-size: calc(100% / 3.33333333333);
 }
 
 @media (min-width: 768px){
