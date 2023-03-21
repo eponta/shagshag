@@ -210,6 +210,7 @@ export default {
   opacity: 1;
   transition: 0.1s;
 
+  -webkit-tap-highlight-color: transparent; 
   cursor: pointer;
 
   z-index: 111;

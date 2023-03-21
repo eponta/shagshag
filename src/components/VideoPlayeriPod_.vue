@@ -1,18 +1,9 @@
 <template>
   <div class="video-player-ipod ipod-container flex-container-column align-center justify-center">
-    <div 
-      ref="ipod"
-      class="ipod flex-container-column align-center space-between"
-      :style="{height: `${ipodWidth * coefiPod}px`}"
-    >
-      <div 
-        ref="ipodScreen"
-        class="ipod-screen"
-        :style="{height: `${ipodScreenWidth * coefiPodScreen}px`}"
-      >
+    <div class="ipod flex-container-column align-center space-between">
+      <div class="ipod-screen">
         <div class="ipod-iframe-container" :class="iPodOn ? 'ipod-on' : 'ipod-off'">
-          <youtube 
-            ref="youtube" 
+          <youtube ref="youtube" 
             :player-vars="playerVars"
             @ready="ready" 
             @playing="playing" 
@@ -24,11 +15,7 @@
           ></youtube>
         </div>
       </div>
-      <div 
-        ref="ipodControls"
-        class="ipod-controls"
-        :style="{height: `${ipodControlsWidth}px`}"
-      >
+      <div class="ipod-controls">
         <div class="ipod-controls-ilot"></div>
         <div class="ipod-controls-pad flex-container-row align-center justify-center" :class="clicked ? `clicked-${clicked}` : null">
           <div class="flex-1 full-height flex-container-column align-center justify-center">
@@ -63,16 +50,11 @@ export default {
       //iPod
       iPodOn: true,
       clicked: null,
-      ipodWidth: 260,
-      ipodScreenWidth: 216,
-      ipodControlsWidth: 162,
-      coefiPod: 1.70769230769,
-      coefiPodScreen: 0.75,
       //YT
       playerVars: {
         loop: 1,
         modestBranding: 1,
-        controls: 0,
+        controls: 0
       },
       playerState: null,
       // playerVolume: 15,
@@ -92,7 +74,7 @@ export default {
   computed: {
     player() {
       return this.$refs.youtube.player;
-    }
+    },
   },
   methods: {
     //BUTTONS
@@ -144,52 +126,33 @@ export default {
     clickEast() {
       this.clicked = 'east';
       this.player.nextVideo();
-    },
-    resizeHandler() {
-      this.ipodWidth = this.$refs.ipod.clientWidth + 2;
-      this.ipodScreenWidth = this.$refs.ipodScreen.clientWidth + 8;
-      this.ipodControlsWidth = this.$refs.ipodControls.clientWidth + 2;
     }
-  },
-  mounted() {
-    this.ipodWidth = this.$refs.ipod.clientWidth + 2;
-    this.ipodScreenWidth = this.$refs.ipodScreen.clientWidth + 8;
-    this.ipodControlsWidth = this.$refs.ipodControls.clientWidth + 2;
-  },
-  created() {
-    window.addEventListener("resize", this.resizeHandler);
-  },
-  destroyed() {
-    window.removeEventListener("resize", this.resizeHandler);
   }
 }
 </script>
 
 <style scoped>
 .video-player-ipod {
-  padding: max(20px, calc((100% - 200px) / 5));
+  padding: 20px;
 }
 
 .ipod {
-  min-width: 260px;
-  max-width: 400px;
-  min-height: 444px;
-  width: 100%;
-  padding: clamp(22px, calc((100% - 2.33px) / 11.67), 34px);
+  width: 260px;
+  height: 444px;
+  padding: 22px;
   box-sizing: border-box;
   border: 1px solid dimgrey;
   border-radius: 25px;
   box-shadow: 
     0px 0px 10px dimgray inset,
     0px -3px 20px rgb(64, 64, 64) inset;
-  background-color: gainsboro;
+  /* background-color: gainsboro; */
   background-image: radial-gradient(ellipse at 49% 35%, whitesmoke 0%, gainsboro 60%, dimgray 110%);
 }
 
 .ipod-screen {
-  min-width: 216px;
-  min-height: 162px;
-  width: 100%;
+  width: 216px;
+  height: 162px;
   box-sizing: border-box;
   border: 4px black solid;
   border-radius: 5px;
@@ -209,26 +172,23 @@ export default {
 
 .ipod-controls {
   position: relative;
-  min-height: 162px;
-  max-height: 250px;
-  width: clamp(162px, calc(100% / 1.32098765432), 250px);
-  margin-bottom: clamp(28px, calc((100% + 25px) / 8.29), 44px);
+  width: 160px;
+  height: 160px;
+  margin-bottom: 28px;
   background: white;
-  box-sizing: border-box;
   border: 1px solid gainsboro;
-  border-radius: 999px;
+  border-radius: 100px;
   z-index: 95;
 }
 
 .ipod-controls-ilot {
   position: absolute;
-  top: calc(50% - (100% / (2.61290322581 * 2)));
-  left: calc(50% - (100% / (2.61290322581 * 2)));
-  width: calc(100% / 2.61290322581);
-  height: calc(100% / 2.61290322581);
-  box-sizing: border-box;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  width: 60px;
+  height: 60px;
   border: 1px solid gainsboro;
-  border-radius: 999px;
+  border-radius: 100px;
   background-color: gainsboro;
   background: linear-gradient(-5deg, whitesmoke, rgb(187, 187, 187));
   z-index: 97;
@@ -244,7 +204,7 @@ export default {
               linear-gradient(90deg, rgba(0,0,0,0.75) -50%, rgba(255, 255, 255, 0.5) 25%, rgba(255, 255, 255, 0.5) 75%, rgb(0,0,0,0.75) 150%);
   background-size: 250% 250%;
   background-position: 50% 50%, 50% 50%;
-  border-radius: 999px;
+  border-radius: 100px;
   z-index: 96;
 }
 .clicked-west {
@@ -336,28 +296,28 @@ export default {
   height: calc(100% / 3);
   background-image: url(../assets/icons/ipod-backward.png);
   background-position: 23% 50%;
-  background-size: calc(100% / 3.375);
+  background-size: 16px;
 }
 .btn-north {
   width: 100%;
   height: calc(100% / 3);
   background-image: url(../assets/icons/ipod-menu.png);
   background-position: 50% 20%;
-  background-size: calc(100% / 1.6875);
+  background-size: 32px;
 }
 .btn-south {
   width: 100%;
   height: calc(100% / 3);
   background-image: url(../assets/icons/ipod-play-pause.png);
   background-position: 50% 82%;
-  background-size: calc(100% / 2.842);
+  background-size: 19px;
 }
 .btn-east {
   width: 100%;
   height: calc(100% / 3);
   background-image: url(../assets/icons/ipod-forward.png);
   background-position: 77% 50%;
-  background-size: calc(100% / 3.375);
+  background-size: 16px;
 }
 
 .ipod-volume-container {
