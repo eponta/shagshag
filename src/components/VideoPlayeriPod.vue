@@ -53,8 +53,6 @@
 </template>
 
 <script>
-
-
 export default {
   name: 'VideoPlayeriPod',
   data: function () {
@@ -147,7 +145,7 @@ export default {
       else {
         this.iPodType = 0
       }
-      setTimeout(this.resizeHandler, 1);
+      setTimeout(this.resizeHandler, 10);
     },
     clickSouth() {
       this.clicked = 'south';
@@ -211,12 +209,45 @@ export default {
 </script>
 
 <style scoped>
+.video-player-ipod {
+  min-height: 500px;
+  overflow: hidden;
+}
+
 .video-player-ipod.classic {
   padding: clamp(20px, calc((100% - 200px) / 5), 67px);
 }
 
 .video-player-ipod.nano {
   padding: clamp(57px, calc((100% - 91px) / 3.12), 142px);
+}
+
+@keyframes switchOpacityC {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    margin-left: 200%;
+    }
+  100% {
+    opacity: 1;
+    margin-left: 0%;
+    }
+}
+
+@keyframes switchOpacityN {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    margin-left: 200%;
+    }
+  100% {
+    opacity: 1;
+    margin-left: 0%;
+    }
 }
 
 .classic .ipod {
@@ -233,6 +264,11 @@ export default {
     0px -3px 20px rgb(64, 64, 64) inset;
   background-color: gainsboro;
   background-image: radial-gradient(ellipse at 49% 35%, whitesmoke 0%, gainsboro 60%, dimgray 110%);
+
+  opacity: 1;
+  animation-name: switchOpacityC;
+  animation-duration: 0.6s;
+  animation-iteration-count: 1;
 }
 
 .nano .ipod {
@@ -257,6 +293,11 @@ export default {
       0px 0px 60px rgba(255, 255, 255, 0.1);
   background-color: #e0e0e0;
   background-image: linear-gradient(90deg, dimgray -50%, #d8d8d8 15%, #fafafa 49%, #cdcdcd 80%, dimgray 150%);
+
+  opacity: 1;
+  animation-name: switchOpacityN;
+  animation-duration: 0.6s;
+  animation-iteration-count: 1;
 }
 
 .classic .ipod-screen {
