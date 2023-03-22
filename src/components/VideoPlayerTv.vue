@@ -90,7 +90,7 @@ export default {
     },
     ready() {
       // this.setVolume();
-      this.player.loadPlaylist(['_8BoZizFG60', 'GkENaIj1L0c', 'DyAZUMQQKk4']);
+      this.player.loadPlaylist(['DyAZUMQQKk4', '_8BoZizFG60', 'GkENaIj1L0c']);
       this.player.setLoop(true);
     },
   },
