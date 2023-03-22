@@ -11,7 +11,7 @@
     </div>
     <div class="tv-screen flex-container-row fit-max-width align-center justify-center">
       <div class="tv-iframe-container" :class="tvOn ? 'tv-on' : 'tv-off'">
-        <iframe width="540" 
+        <!-- <iframe width="540" 
                 height="480" 
                 :src="youtubeSrc" 
                 title="YouTube video player" 
@@ -20,7 +20,14 @@
                 allowfullscreen
                 :style="{display: tvOn ? 'inline' : 'none'}"
         >
-        </iframe>
+        </iframe> -->
+          <youtube 
+            ref="youtube" 
+            :player-vars="playerVars"
+            @ready="ready" 
+            width="100%" 
+            height="100%"
+          ></youtube>
       </div>
       <div class="tv-controls-container flex-container-column align-center justify-center">
         <div class="tv-rot-container flex-container-column fit-height align-center justify-center">
@@ -63,6 +70,10 @@ export default {
   data: function () {
     return {
       tvOn: true,
+      playerVars: {
+        autoplay: 1,
+        mute: 0,
+      }
     }
   },
   props: {
@@ -75,13 +86,27 @@ export default {
       default: 'black'
     }
   },
+  computed: {
+    player() {
+      return this.$refs.youtube.player;
+    },
+  },
   methods: {
     turnBtn(btnId) {
       this.$el.querySelector(`.tv-rot-btn-${btnId}`).style.setProperty('--tv-rot-btn-angle', `rotate(${Math.random() * 360}deg)`);
     },
     powerTv() {
       this.tvOn = !this.tvOn;
-    }
+      let dis = this.tvOn ? 'inline' : 'none';
+      let vol = this.tvOn ? 100 : 0;
+      this.$el.querySelector('iframe').style.display = dis;
+      this.player.setVolume(vol);
+    },
+    ready() {
+      // this.setVolume();
+      this.player.loadPlaylist(['_8BoZizFG60', 'GkENaIj1L0c', 'DyAZUMQQKk4']);
+      this.player.setLoop(true);
+    },
   },
   mounted() {
       this.$el.querySelector('.tv-rot-btn-1').style.setProperty('--tv-rot-btn-angle', `rotate(${Math.random() * 360}deg)`);
