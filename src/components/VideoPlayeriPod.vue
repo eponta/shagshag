@@ -84,12 +84,6 @@ export default {
     //   this.setVolume(val);
     // }
   },
-  props: {
-    youtubeSrc: {
-      type: String,
-      required: true
-    },
-  },
   computed: {
     player() {
       return this.$refs.youtube.player;

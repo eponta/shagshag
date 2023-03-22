@@ -11,16 +11,6 @@
     </div>
     <div class="tv-screen flex-container-row fit-max-width align-center justify-center">
       <div class="tv-iframe-container" :class="tvOn ? 'tv-on' : 'tv-off'">
-        <!-- <iframe width="540" 
-                height="480" 
-                :src="youtubeSrc" 
-                title="YouTube video player" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" 
-                allowfullscreen
-                :style="{display: tvOn ? 'inline' : 'none'}"
-        >
-        </iframe> -->
           <youtube 
             ref="youtube" 
             :player-vars="playerVars"
@@ -77,10 +67,6 @@ export default {
     }
   },
   props: {
-    youtubeSrc: {
-      type: String,
-      required: true
-    },
     customBackground: {
       type: String,
       default: 'black'
